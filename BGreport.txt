@@ -1,0 +1,33 @@
+PORT SCANNER
+____________________________________________________________
+
+Open:
+PORT 631: OPEN ipp CUPS 2.4
+Vulnerabilitie:
+CVE ID: CVE-2023-32324
+Description: OpenPrinting CUPS is an open source printing system. In versions 2.4.2 and prior, a heap
+a remote attacker to launch a denial of service (DoS) attack. A buffer overflow vulnerability
+allow remote attackers to cause a DoS on the affected system. Exploitation of the vulnerability
+configuration file `cupsd.conf` sets the value of `loglevel `to `DEBUG`. No known patches or workarounds
+Severity: HIGH 7.5
+
+Finished in 0:00:06.916853
+____________________________________________________________
+
+Invalid Logins
+____________________________________________________________
+User: frankie Login Type: sudo: Date: 2025-03-19T19:48:37.054054-04:00
+User: frankie Login Type: sudo: Date: 2025-03-20T11:26:37.820641-04:00
+User: frankie Login Type: gdm-password]: Date: 2025-03-23T09:17:12.722726-04:00
+User: frankie Login Type: gdm-password]: Date: 2025-04-07T11:47:46.038589-04:00
+User: frankie Login Type: gdm-password]: Date: 2025-04-09T15:03:21.299075-04:00
+User: frankie Login Type: sudo: Date: 2025-04-09T16:05:20.923505-04:00
+
+Failed Logins per User
+frankie: 2
+
+Finished in 0:00:00.001025
+____________________________________________________________
+Root User
+____________________________________________________________
+Root user is LOCKEDFinished in 0:00:00.000050
