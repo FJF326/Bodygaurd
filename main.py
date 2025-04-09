@@ -8,3 +8,6 @@ subprocess.call(command)
 
 command=["python3", "checkRoot.py"]
 subprocess.call(command)
+
+command=["python3", "checkCron.py"]
+subprocess.call(command)

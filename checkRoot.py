@@ -10,7 +10,7 @@ report.write("\n")
 t1=datetime.now()
 contents = shadow.read()
 lines = contents.splitlines()
-
+print("Checking Root User.. ")
 if lines[0][5]=='*' or lines[0][5]=="!":
     report.write("Root user is LOCKED\n")
 else:
@@ -19,7 +19,10 @@ else:
 t2=datetime.now()
 
 totalTime = t2-t1
-report.write("Finished in "+ str(totalTime)+"\n")
+report.write("\nFinished in "+ str(totalTime)+"\n")
+report.write("_"*60)
+report.write("\n")
+print("Finished Checking Root User")
 
 
 
