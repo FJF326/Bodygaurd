@@ -1,4 +1,14 @@
 import subprocess
+import argparse
+
+closePort = False
+deleteCron = False
+lockUser = False
+addEmail = False
+takeAction = False
+
+
+
 
 command = ["python3", "portscanner.py"]
 subprocess.call(command)
