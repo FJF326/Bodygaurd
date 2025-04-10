@@ -2,7 +2,7 @@ from datetime import datetime
 import subprocess
 
 report = open("BGreport.txt","a")
-report.write("Crontab Scan\n")
+report.write("\nCrontab Scan\n")
 report.write("_"*60)
 report.write("\n")
 report.write("All Running Jobs:\n\n")

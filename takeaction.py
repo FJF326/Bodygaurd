@@ -48,5 +48,3 @@ for line in lines:
                 print(Fore.GREEN+user+" has been LOCKED")
         
 
-#action for root
-for 

@@ -24,7 +24,7 @@ for line in log:
             i=i+1
         if(index != -1):   
             user=words[i][5:]
-            loginType =words[2]
+            loginType =words[2].strip(":")
             report.write("User: "+user + " Login Type: "+loginType+ " Date: "+date+"\n")
             entry = {"date":date}
             if user in failedLogins:

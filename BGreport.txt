@@ -11,32 +11,32 @@ allow remote attackers to cause a DoS on the affected system. Exploitation of th
 configuration file `cupsd.conf` sets the value of `loglevel `to `DEBUG`. No known patches or workarounds
 Severity: HIGH 7.5
 
-Finished in 0:00:07.038927
+Finished in 0:00:07.005460
 ____________________________________________________________
 
 Invalid Logins
 ____________________________________________________________
-User: frankie Login Type: sudo: Date: 2025-03-19T19:48:37.054054-04:00
-User: frankie Login Type: sudo: Date: 2025-03-20T11:26:37.820641-04:00
-User: frankie Login Type: gdm-password]: Date: 2025-03-23T09:17:12.722726-04:00
-User: frankie Login Type: gdm-password]: Date: 2025-04-07T11:47:46.038589-04:00
-User: frankie Login Type: gdm-password]: Date: 2025-04-09T15:03:21.299075-04:00
-User: frankie Login Type: sudo: Date: 2025-04-09T16:05:20.923505-04:00
-User: root Login Type: su: Date: 2025-04-09T18:43:54.559860-04:00
-User: frankie Login Type: gdm-password]: Date: 2025-04-09T21:54:23.092302-04:00
+User: frankie Login Type: sudo Date: 2025-03-19T19:48:37.054054-04:00
+User: frankie Login Type: sudo Date: 2025-03-20T11:26:37.820641-04:00
+User: frankie Login Type: gdm-password] Date: 2025-03-23T09:17:12.722726-04:00
+User: frankie Login Type: gdm-password] Date: 2025-04-07T11:47:46.038589-04:00
+User: frankie Login Type: gdm-password] Date: 2025-04-09T15:03:21.299075-04:00
+User: frankie Login Type: sudo Date: 2025-04-09T16:05:20.923505-04:00
+User: root Login Type: su Date: 2025-04-09T18:43:54.559860-04:00
+User: frankie Login Type: gdm-password] Date: 2025-04-09T21:54:23.092302-04:00
 
 Failed Logins per User in Last 24 Hours
 frankie: 3
 root: 1
 
-Finished in 0:00:00.001042
+Finished in 0:00:00.001044
 ____________________________________________________________
 
 Root User Check
 ____________________________________________________________
 Root user is LOCKED
 
-Finished in 0:00:00.000037
+Finished in 0:00:00.000065
 ____________________________________________________________
 Crontab Scan
 ____________________________________________________________
@@ -46,4 +46,4 @@ User frankie:
 
 User andrew:
 User has no crontab established
-Finished in 0:00:00.004968
+Finished in 0:00:00.004966
