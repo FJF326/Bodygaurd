@@ -80,7 +80,7 @@ for port in range(1,9000):
             else:
                 severity = "LOW"
 
-        file.write("PORT "+str(port)+": OPEN "+ service + " "+ version+"\n")
+        file.write("Port "+str(port)+": OPEN "+ service + " "+ version+"\n")
         file.write("Vulnerabilitie:\n")
         file.write("CVE ID: "+id+"\n")
         file.write("Description: ")

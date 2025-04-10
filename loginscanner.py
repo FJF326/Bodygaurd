@@ -34,7 +34,7 @@ for line in log:
                 failedLogins[user].append(entry)
 
 
-report.write("\nFailed Logins per User\n")
+report.write("\nFailed Logins per User in Last 24 Hours\n")
 for user,dates in  failedLogins.items():
         
         dateChecker = datetime.fromisoformat(dates[len(dates)-1]['date']) - timedelta(hours=24)

@@ -2,7 +2,7 @@ PORT SCANNER
 ____________________________________________________________
 
 Open:
-PORT 631: OPEN ipp CUPS 2.4
+Port 631: OPEN ipp CUPS 2.4
 Vulnerabilitie:
 CVE ID: CVE-2023-32324
 Description: OpenPrinting CUPS is an open source printing system. In versions 2.4.2 and prior, a heap
@@ -11,7 +11,7 @@ allow remote attackers to cause a DoS on the affected system. Exploitation of th
 configuration file `cupsd.conf` sets the value of `loglevel `to `DEBUG`. No known patches or workarounds
 Severity: HIGH 7.5
 
-Finished in 0:00:06.996915
+Finished in 0:00:07.038927
 ____________________________________________________________
 
 Invalid Logins
@@ -23,25 +23,27 @@ User: frankie Login Type: gdm-password]: Date: 2025-04-07T11:47:46.038589-04:00
 User: frankie Login Type: gdm-password]: Date: 2025-04-09T15:03:21.299075-04:00
 User: frankie Login Type: sudo: Date: 2025-04-09T16:05:20.923505-04:00
 User: root Login Type: su: Date: 2025-04-09T18:43:54.559860-04:00
+User: frankie Login Type: gdm-password]: Date: 2025-04-09T21:54:23.092302-04:00
 
-Failed Logins per User
-frankie: 2
+Failed Logins per User in Last 24 Hours
+frankie: 3
 root: 1
 
-Finished in 0:00:00.001098
+Finished in 0:00:00.001042
 ____________________________________________________________
 
 Root User Check
 ____________________________________________________________
 Root user is LOCKED
-Finished in 0:00:00.000062
+
+Finished in 0:00:00.000037
+____________________________________________________________
 Crontab Scan
 ____________________________________________________________
 All Running Jobs:
 
 User frankie:
-1. 0 1 * * 1 echo "Hello"
 
 User andrew:
 User has no crontab established
-Finished in 0:00:00.004045
+Finished in 0:00:00.004968
