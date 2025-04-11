@@ -7,4 +7,4 @@ args = parser.parse_args()
 
 configure = open("Bodygaurd.conf","a")
 
-configure.write("email= "+args.email)
+configure.write("email="+args.email)
