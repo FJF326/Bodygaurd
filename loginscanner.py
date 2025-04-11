@@ -10,23 +10,30 @@ report.write("_"*60)
 report.write("\n")
 t1 = datetime.now()
 failedLogins={}
+invalidLoginCount=1
 print("Scanning Logins...")
 for line in log:
     if "authentication failure" in line:
         index =-1
         i =0
         words = line.split()
-        date = words[0]
+        month = words[0]
+        day = words[1]
+        time = words[2]
+        fullDate= f"{month} {day} {time} {datetime.now().year}"
+
+        parsedDate = datetime.strptime(fullDate, "%b %d %H:%M:%S %Y")
+        entry = {"date": parsedDate}
         for value in words:
-            if value.startswith("user="):
+            if value.startswith("user=") or value.startswith("USER="):
                 index=i
                 break
             i=i+1
         if(index != -1):   
             user=words[i][5:]
-            loginType =words[2].strip(":")
-            report.write("User: "+user + " Login Type: "+loginType+ " Date: "+date+"\n")
-            entry = {"date":date}
+            loginType =words[4].strip(":")
+            report.write(str(invalidLoginCount)+". User: "+user + " Login Type: "+loginType+ " Date: "+fullDate+"\n")
+            invalidLoginCount+=1
             if user in failedLogins:
                 failedLogins[user].append(entry)
             else:
@@ -37,10 +44,10 @@ for line in log:
 report.write("\nFailed Logins per User in Last 24 Hours\n")
 for user,dates in  failedLogins.items():
         
-        dateChecker = datetime.fromisoformat(dates[len(dates)-1]['date']) - timedelta(hours=24)
+        dateChecker = dates[-1]['date']- timedelta(hours=24)
         recentFails =0
         for date in dates:
-            newDate = datetime.fromisoformat(date["date"])
+            newDate = date["date"]
             if dateChecker < newDate:
                 recentFails = recentFails+1
         report.write(user+": " + str(recentFails)+ "\n")

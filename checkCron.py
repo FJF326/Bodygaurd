@@ -28,14 +28,15 @@ for user in users:
             if line.startswith("#"):
                 continue
             else:
-                report.write(str(count)+". "+line+"\n")
-                count = count +1
+                if line != "":
+                    report.write(str(count)+". "+line+"\n")
+                    count = count +1
         report.write("\n")           
     except:
          report.write("User has no crontab established\n")
 
 t2= datetime.now()
 totalTime = t2-t1
-report.write("Finished in "+str(totalTime) )
+report.write("\nFinished in "+str(totalTime) )
 
 print("Finished Checking Cron Jobs")

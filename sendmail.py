@@ -16,7 +16,7 @@ port = 587  # For starttls
 smtp_server = "smtp.gmail.com"
 sender_email = "bodygaurdreport@gmail.com"
 password = "xzyj enjm syzo qpfz"
-message = reportInfo
+message = "Subject: Bodygaurd Report \n\n"  +reportInfo
 for  email in emails:
     receiver_email = email
     context = ssl.create_default_context()

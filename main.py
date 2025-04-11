@@ -6,7 +6,8 @@ deleteCron = False
 lockUser = ""
 addEmail = ""
 takeAction = False
-
+deleteCronJob = ""
+deleteCronUser = ""
 
 
 parser = argparse.ArgumentParser()
@@ -15,13 +16,16 @@ parser.add_argument('-a', action='store_true', help='Enable takeAction')
 parser.add_argument('-cP',type=int, help='Close specific port (requires port number)')
 parser.add_argument('-l', type=str, help='Lock user')
 parser.add_argument('-e', type=str, help='Add email')
-
+parser.add_argument('-dC',nargs =2,type=str,help='Delete cron job: user job')
 args = parser.parse_args()
 
 takeAction = args.a
 closePort = args.cP
 lockUser = args.l
 addEmail = args.e
+if args.dC:
+    deleteCronUser = args.dC[0]
+    deleteCronJob = args.dC[1]
 
 
 
@@ -42,6 +46,10 @@ elif addEmail is not None:
     command = ["python3","addEmail.py",addEmail]
     subprocess.call(command)
 
+
+elif deleteCronJob and deleteCronUser:
+    command = ["python3","deleteCron.py",deleteCronUser,deleteCronJob]
+    subprocess.call(command)
 
 
 else:

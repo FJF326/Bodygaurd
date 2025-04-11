@@ -14,10 +14,9 @@ lines = info.splitlines()
 job = " ".join(args.job)
 count = 0
 
-print(job)
+
 for line in lines:
     if job in line:
-        print("found line")
         lines[count]=""
         break
     else:
@@ -27,7 +26,7 @@ modified = ""
 for line in lines:
     modified +=  line + "\n"
 
-print(modified)
+
 
 subprocess.run(['crontab', '-u',args.user,'-'], input=modified, text=True)
 

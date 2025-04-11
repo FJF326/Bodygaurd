@@ -12,8 +12,6 @@ for line in confLines:
         words=line.split("=")
         threshhold=words[1]
 
-print(str(threshhold))
-
 subprocess.call(["python3","main.py"],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 
 report = open("BGreport.txt","r")
@@ -49,7 +47,7 @@ for line in lines:
         words = line.strip().split(":")
         user = words[0]
         failedLogins=words[1]
-        if(int(failedLogins) >=threshhold):
+        if(int(failedLogins) >=int(threshhold)):
             noUsers = False
             print(Fore.BLUE+user+" is above the threshold("+str(threshhold)+")")
             userResponse=input(Fore.YELLOW+"Would you like to LOCK the user?(y/n):") 
@@ -61,3 +59,31 @@ if noUsers == True:
     print(Fore.BLUE+"No Users are above the threshold")
         
 
+#actions for cron jobs
+print(Fore.GREEN+"\nANALYZING CRON JOBS:")
+noCronJobs = True
+section = False
+currentUser =""
+currentJob=""
+
+for line in lines:
+     if line.startswith("All Running Jobs:"):
+       section = True
+       continue
+     if section == True and line!="":
+        words=line.split()
+        if words[0].startswith("User"):
+            currentUser = words[1].strip(":")
+            continue
+
+        elif line.startswith("Finished"):
+            break
+        
+        elif "." in line:
+            words=line.split(".")
+            currentJob = words[1].strip()
+            print(Fore.BLUE+"User "+currentUser+" has cron job "+currentJob)
+            userResponse = input(Fore.YELLOW+"Would you like to Delete this job?(y/n)")
+            if userResponse =="y":
+                subprocess.call(["python3","deleteCron.py",currentUser,currentJob])
+        
