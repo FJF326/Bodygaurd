@@ -12,7 +12,7 @@ takeAction = False
 parser = argparse.ArgumentParser()
 
 parser.add_argument('-a', action='store_true', help='Enable takeAction')
-parser.add_argument('-cP', help='Close specific port (requires port number)')
+parser.add_argument('-cP',type=int, help='Close specific port (requires port number)')
 parser.add_argument('-l', type=str, help='Lock user')
 parser.add_argument('-e', type=str, help='Add email')
 
@@ -30,15 +30,15 @@ if takeAction == True:
     command = ["python3","takeaction.py"]
     subprocess.call(command)
 
-elif closePort != 0:
+elif closePort is not None:
     command = ["python3","portCloser.py",closePort]
     subprocess.call(command)
 
-elif lockUser != "":
+elif lockUser is not None:
     command = ["python3","lockUser.py",lockUser]
     subprocess.call(command)
 
-elif addEmail != "":
+elif addEmail is not None:
     command = ["python3","addEmail.py",addEmail]
     subprocess.call(command)
 

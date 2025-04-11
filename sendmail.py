@@ -8,7 +8,6 @@ info = conf.read()
 lines = info.split()
 for line in lines:
     if line.startswith("email="):
-        print(line)
         words=line.split("=")
         emails.append(words[1])
 

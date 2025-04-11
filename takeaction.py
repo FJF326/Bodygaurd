@@ -4,7 +4,15 @@ from colorama import Fore
 import os
 import psutil
 
-threshhold =3
+config = open("Bodygaurd.conf","r")
+confLines = config.read().splitlines()
+
+for line in confLines:
+    if line.startswith("threshold="):
+        words=line.split("=")
+        threshhold=words[1]
+
+print(str(threshhold))
 
 subprocess.call(["python3","main.py"],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 
@@ -28,6 +36,7 @@ for line in lines:
 
 #action for user
 print(Fore.GREEN+"\nANALYZING USERS:")
+noUsers = True
 section = False
 for line in lines:
     if line.startswith("Failed Logins"):
@@ -41,10 +50,14 @@ for line in lines:
         user = words[0]
         failedLogins=words[1]
         if(int(failedLogins) >=threshhold):
+            noUsers = False
             print(Fore.BLUE+user+" is above the threshold("+str(threshhold)+")")
             userResponse=input(Fore.YELLOW+"Would you like to LOCK the user?(y/n):") 
             if userResponse == "y":
                 subprocess.call(["python3","lockUser.py",user])
                 print(Fore.GREEN+user+" has been LOCKED")
+
+if noUsers == True:
+    print(Fore.BLUE+"No Users are above the threshold")
         
 
