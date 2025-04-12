@@ -15,8 +15,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-a', action='store_true', help='Enable takeAction')
 parser.add_argument('-cP',type=int, help='Close specific port (requires port number)')
 parser.add_argument('-l', type=str, help='Lock user')
-parser.add_argument('-e', type=str, help='Add email')
-parser.add_argument('-dC',nargs =2,type=str,help='Delete cron job: user job')
+parser.add_argument('-e', type=str, help='Add email to config file')
+parser.add_argument('-dC',nargs =2,type=str,help='Delete cron job: [user] [job]')
+parser.add_argument('-s',type=str,help='add dafe user to config file' )
 args = parser.parse_args()
 
 takeAction = args.a

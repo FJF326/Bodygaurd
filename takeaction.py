@@ -4,7 +4,9 @@ from colorama import Fore
 import os
 import psutil
 
-config = open("Bodygaurd.conf","r")
+subprocess.call(["clear"])
+
+config = open("BG.conf","r")
 confLines = config.read().splitlines()
 
 for line in confLines:
@@ -33,7 +35,7 @@ for line in lines:
 
 
 #action for user
-print(Fore.GREEN+"\nANALYZING USERS:")
+print(Fore.LIGHTMAGENTA_EX+"\nANALYZING USERS:")
 noUsers = True
 section = False
 for line in lines:
@@ -46,7 +48,7 @@ for line in lines:
             break
         words = line.strip().split(":")
         user = words[0]
-        failedLogins=words[1]
+        failedLogins=words[1].replace("(SAFE USER)","")
         if(int(failedLogins) >=int(threshhold)):
             noUsers = False
             print(Fore.BLUE+user+" is above the threshold("+str(threshhold)+")")
@@ -60,7 +62,7 @@ if noUsers == True:
         
 
 #actions for cron jobs
-print(Fore.GREEN+"\nANALYZING CRON JOBS:")
+print(Fore.LIGHTMAGENTA_EX+"\nANALYZING CRON JOBS:")
 noCronJobs = True
 section = False
 currentUser =""
@@ -86,4 +88,4 @@ for line in lines:
             userResponse = input(Fore.YELLOW+"Would you like to Delete this job?(y/n)")
             if userResponse =="y":
                 subprocess.call(["python3","deleteCron.py",currentUser,currentJob])
-        
+                print(Fore.GREEN+"JOB has been DELETED")

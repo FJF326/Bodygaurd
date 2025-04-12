@@ -1,7 +1,7 @@
 import smtplib, ssl
 
 emails = []
-conf = open("Bodygaurd.conf","r")
+conf = open("BG.conf","r")
 report = open("BGreport.txt","r")
 reportInfo = report.read()
 info = conf.read()

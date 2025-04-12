@@ -8,6 +8,16 @@ report.write("\n")
 report.write("Invalid Logins\n")
 report.write("_"*60)
 report.write("\n")
+
+safeUsers=[]
+conf = open("BG.conf","r")
+confLines = conf.read().splitlines()
+for line in confLines:
+    if line.startswith("safe="):
+        words=line.split("=")
+        safeUsers=words[1].split()
+        print(safeUsers)
+
 t1 = datetime.now()
 failedLogins={}
 invalidLoginCount=1
@@ -30,7 +40,7 @@ for line in log:
                 break
             i=i+1
         if(index != -1):   
-            user=words[i][5:]
+            user=words[i][5:].replace("]","")
             loginType =words[4].strip(":")
             report.write(str(invalidLoginCount)+". User: "+user + " Login Type: "+loginType+ " Date: "+fullDate+"\n")
             invalidLoginCount+=1
@@ -50,7 +60,10 @@ for user,dates in  failedLogins.items():
             newDate = date["date"]
             if dateChecker < newDate:
                 recentFails = recentFails+1
-        report.write(user+": " + str(recentFails)+ "\n")
+        if user in safeUsers:
+            report.write(user+": " + str(recentFails)+ " (SAFE USER)\n")
+        else:
+            report.write(user+": " + str(recentFails)+ "\n")
        
        
         
