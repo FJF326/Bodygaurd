@@ -8,7 +8,7 @@ addEmail = ""
 takeAction = False
 deleteCronJob = ""
 deleteCronUser = ""
-
+safeUser=""
 
 parser = argparse.ArgumentParser()
 
@@ -28,7 +28,7 @@ if args.dC:
     deleteCronUser = args.dC[0]
     deleteCronJob = args.dC[1]
 
-
+safeUser = args.s
 
 
 if takeAction == True:
@@ -52,6 +52,10 @@ elif deleteCronJob and deleteCronUser:
     command = ["python3","deleteCron.py",deleteCronUser,deleteCronJob]
     subprocess.call(command)
 
+
+elif safeUser is not None:
+    command = ["python3","addSafeUser.py",safeUser]
+    subprocess.call(command)
 
 else:
     command = ["python3", "portscanner.py"]

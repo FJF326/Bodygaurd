@@ -41,7 +41,7 @@ for line in log:
             i=i+1
         if(index != -1):   
             user=words[i][5:].replace("]","")
-            loginType =words[4].strip(":")
+            loginType =words[4].strip(":").replace("]","")
             report.write(str(invalidLoginCount)+". User: "+user + " Login Type: "+loginType+ " Date: "+fullDate+"\n")
             invalidLoginCount+=1
             if user in failedLogins:

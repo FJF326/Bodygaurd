@@ -11,32 +11,32 @@ allow remote attackers to cause a DoS on the affected system. Exploitation of th
 configuration file `cupsd.conf` sets the value of `loglevel `to `DEBUG`. No known patches or workarounds
 Severity: HIGH 7.5
 
-Finished in 0:00:06.725004
+Finished in 0:00:06.771133
 ____________________________________________________________
 
 Invalid Logins
 ____________________________________________________________
-1. User: frank Login Type: gdm-password] Date: Apr 11 17:55:22 2025
+1. User: frank Login Type: gdm-password Date: Apr 11 17:55:22 2025
 2. User: root Login Type: sudo Date: Apr 11 18:41:01 2025
-3. User: frank Login Type: gdm-password] Date: Apr 11 19:16:25 2025
-4. User: frank Login Type: gdm-password] Date: Apr 11 20:03:34 2025
-5. User: frank Login Type: gdm-password] Date: Apr 11 20:03:42 2025
-6. User: frank Login Type: gdm-password] Date: Apr 11 20:10:04 2025
+3. User: frank Login Type: gdm-password Date: Apr 11 19:16:25 2025
+4. User: frank Login Type: gdm-password Date: Apr 11 20:03:34 2025
+5. User: frank Login Type: gdm-password Date: Apr 11 20:03:42 2025
+6. User: frank Login Type: gdm-password Date: Apr 11 20:10:04 2025
 7. User: andrew Login Type: sudo Date: Apr 11 20:12:25 2025
 
 Failed Logins per User in Last 24 Hours
-frank: 5
+frank: 5 (SAFE USER)
 root: 1 (SAFE USER)
 andrew: 1
 
-Finished in 0:00:00.001608
+Finished in 0:00:00.001528
 ____________________________________________________________
 
 Root User Check
 ____________________________________________________________
 Root user is LOCKED
 
-Finished in 0:00:00.000022
+Finished in 0:00:00.000012
 ____________________________________________________________
 
 Crontab Scan
@@ -48,4 +48,4 @@ User frank:
 User andrew:
 User has no crontab established
 
-Finished in 0:00:00.001381
+Finished in 0:00:00.001719

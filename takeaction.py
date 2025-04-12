@@ -51,6 +51,10 @@ for line in lines:
         failedLogins=words[1].replace("(SAFE USER)","")
         if(int(failedLogins) >=int(threshhold)):
             noUsers = False
+            if "(SAFE USER)"  in words[1]:
+                print(Fore.GREEN+ user+" is above the threshold but is a SAFE USER")
+                continue
+
             print(Fore.BLUE+user+" is above the threshold("+str(threshhold)+")")
             userResponse=input(Fore.YELLOW+"Would you like to LOCK the user?(y/n):") 
             if userResponse == "y":

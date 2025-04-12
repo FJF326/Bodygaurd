@@ -17,6 +17,7 @@ for line in lines:
     elif section ==True:
         if line == "":
             lines[count]="email="+args.email+"\n"
+            break
     count+=1
 
 modified=""
