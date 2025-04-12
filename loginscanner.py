@@ -16,7 +16,6 @@ for line in confLines:
     if line.startswith("safe="):
         words=line.split("=")
         safeUsers=words[1].split()
-        print(safeUsers)
 
 t1 = datetime.now()
 failedLogins={}
