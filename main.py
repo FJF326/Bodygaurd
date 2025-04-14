@@ -36,7 +36,7 @@ if takeAction == True:
     subprocess.call(command)
 
 elif closePort is not None:
-    command = ["python3","portCloser.py",closePort]
+    command = ["python3","portCloser.py",str(closePort)]
     subprocess.call(command)
 
 elif lockUser is not None:

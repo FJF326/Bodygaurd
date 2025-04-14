@@ -11,8 +11,27 @@ allow remote attackers to cause a DoS on the affected system. Exploitation of th
 configuration file `cupsd.conf` sets the value of `loglevel `to `DEBUG`. No known patches or workarounds
 Severity: HIGH 7.5
 
-Finished in 0:00:06.949903
-____________________________________________________________
+Port 3000: OPEN ssh OpenSSH
+Vulnerabilitie:
+CVE ID: CVE-1999-0661
+Description: A system is running a version of software that was replaced with a Trojan Horse
+points, such as (1) TCP Wrappers 7.6, (2) util-linux 2.9g, (3) wuarchive ftpd (wuftpd) 2.2
+(ircII) ircII 2.2.9, (5) OpenSSH 3.4p1, or (6) Sendmail 8.12.6.
+Severity: HIGH 10.0
+
+Port 3001: OPEN http Apache
+Vulnerabilitie:
+CVE ID: CVE-1999-0236
+Description: ScriptAlias directory in NCSA and Apache httpd allowed attackers to read CGI programs.
+Severity: HIGH 7.5
+
+Port 3002: OPEN ftp vsftpd
+Vulnerabilitie:
+CVE ID: CVE-2003-0135
+Description: vsftpd FTP daemon in Red Hat Linux 9 is not compiled against TCP wrappers (tcp_wrappers)
+standalone service, which inadvertently prevents vsftpd from restricting access as intended.
+Severity: HIGH 7.5
+
 
 Invalid Logins
 ____________________________________________________________
@@ -21,14 +40,14 @@ ____________________________________________________________
 Failed Logins per User in Last 24 Hours
 frank: 1 (SAFE USER)
 
-Finished in 0:00:00.002757
+Finished in 0:00:00.004955
 ____________________________________________________________
 
 Root User Check
 ____________________________________________________________
 Root user is LOCKED
 
-Finished in 0:00:00.000029
+Finished in 0:00:00.000082
 ____________________________________________________________
 
 Crontab Scan
@@ -36,8 +55,20 @@ ____________________________________________________________
 All Running Jobs:
 
 User frank:
+1. * * * * * echo 'SSH fake server alive' >> ~/ssh_cron.log
+2. */2 * * * * echo 'HTTP fake server alive' >> ~/http_cron.log
+3. */3 * * * * echo 'FTP fake server alive' >> ~/ftp_cron.log
+4. */5 * * * * echo 'SMTP fake server alive' >> ~/smtp_cron.log
+5. * * * * * echo 'SSH simulated' >> ~/cron_ssh.log
+6. */2 * * * * echo 'HTTP simulated' >> ~/cron_http.log
+7. */3 * * * * echo 'FTP simulated' >> ~/cron_ftp.log
+8. */5 * * * * echo 'SMTP simulated' >> ~/cron_smtp.log
+9. * * * * * echo 'SSH simulated' >> ~/cron_ssh.log
+10. */2 * * * * echo 'HTTP simulated' >> ~/cron_http.log
+11. */3 * * * * echo 'FTP simulated' >> ~/cron_ftp.log
+12. */5 * * * * echo 'SMTP simulated' >> ~/cron_smtp.log
 
 User andrew:
 User has no crontab established
 
-Finished in 0:00:00.002683
+Finished in 0:00:00.005855
