@@ -53,7 +53,7 @@ for line in log:
 report.write("\nFailed Logins per User in Last 24 Hours\n")
 for user,dates in  failedLogins.items():
         
-        dateChecker = dates[-1]['date']- timedelta(hours=24)
+        dateChecker = datetime.now()- timedelta(hours=24)
         recentFails =0
         for date in dates:
             newDate = date["date"]
