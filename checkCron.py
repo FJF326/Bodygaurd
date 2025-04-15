@@ -33,7 +33,7 @@ for user in users:
                     count = count +1
         report.write("\n")           
     except:
-         report.write("User has no crontab established\n")
+         report.write("User has no crontab established\n\n")
 
 t2= datetime.now()
 totalTime = t2-t1

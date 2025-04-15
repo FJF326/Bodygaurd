@@ -65,6 +65,22 @@ if noUsers == True:
     print(Fore.BLUE+"No Users are above the threshold")
         
 
+#action for root user
+print(Fore.LIGHTMAGENTA_EX+"\nAnalyzing Root User:")
+for line in lines:
+    if line.startswith("Root user is"):
+        words = line.split()
+        if words[3]== "LOCKED":
+            print(Fore.GREEN+"Root User is LOCKED")
+        if words[3] == "UNLOCKED":
+            print(Fore.BLUE+"Root User is UNLOCKED")
+            userResponse = input(Fore.YELLOW+"Would you like to lock the Root user?(y/n)")
+            if userResponse == "y":
+                subprocess.call(["python3","lockUser.py","root"])
+                print(Fore.GREEN+"Root User Has been LOCKED")
+
+
+
 #actions for cron jobs
 print(Fore.LIGHTMAGENTA_EX+"\nANALYZING CRON JOBS:")
 noCronJobs = True
@@ -93,3 +109,6 @@ for line in lines:
             if userResponse =="y":
                 subprocess.call(["python3","deleteCron.py",currentUser,currentJob])
                 print(Fore.GREEN+"JOB has been DELETED")
+
+
+print(Fore.LIGHTGREEN_EX+ "ALL SUGGESTIONS HAVE BEEN COMPLETED")

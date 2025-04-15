@@ -1,6 +1,7 @@
 import socket
 import threading
 from crontab import CronTab
+import subprocess
 
 def run_fake_service(port, banner):
     def handler():
@@ -20,18 +21,16 @@ def run_fake_service(port, banner):
     thread.start()
 
 def add_cron_jobs():
-    cron = CronTab(user=True)
-    jobs = [
-        ("* * * * *", "echo 'SSH simulated' >> ~/cron_ssh.log"),
-        ("*/2 * * * *", "echo 'HTTP simulated' >> ~/cron_http.log"),
-        ("*/3 * * * *", "echo 'FTP simulated' >> ~/cron_ftp.log"),
-        ("*/5 * * * *", "echo 'SMTP simulated' >> ~/cron_smtp.log")
-    ]
-    for time, command in jobs:
-        job = cron.new(command=command)
-        job.setall(time)
-    cron.write()
-    print("Cron jobs added.")
+    cron=open("/var/spool/cron/crontabs/frank","r")
+    info = cron.read()
+    cronLines = info.splitlines()
+    cronLines.append("1 0 * * * evilJob.c")
+    cronLines.append("5 0 * * * echo 'Don't Delete Me!'")
+    modified = ""
+    for line in cronLines:
+        modified +=  line + "\n"
+    
+    subprocess.run(['crontab', '-u',"frank",'-'], input=modified, text=True)
 
 if __name__ == "__main__":
     add_cron_jobs()
